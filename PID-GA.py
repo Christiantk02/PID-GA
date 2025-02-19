@@ -5,7 +5,7 @@ import random as rnd
 
 def system():
     # Create a system transfer function G(s) = num/den
-    num = [1,]
+    num = [1]
     den = [1, 2, 1]
     sys = ctrl.TransferFunction(num, den)
     return sys
@@ -125,7 +125,7 @@ def geneticAlgorithm(system, populationSize, generations, mutationRate):
     return bestPid
 
 sys = system()
-bestP, bestI, bestD = geneticAlgorithm(sys,200, 200, 0.2)
+bestP, bestI, bestD = geneticAlgorithm(sys,100, 100, 0.15)
 
 print(f'Best PID: P={bestP}, I={bestI}, D={bestD}')
 plot(*simulatePid(bestP, bestI, bestD, sys))
