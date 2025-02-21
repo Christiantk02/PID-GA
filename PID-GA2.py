@@ -11,7 +11,7 @@ def system():
     return sys
 
 def pidController(kp, ki, kd):
-    # Genereate a pid transferfunction Gc(s) = kp + ki/s + kds
+    # Generate a pid transferfunction Gc(s) = kp + ki/s + kds
     controller = ctrl.TransferFunction([kd, kp, ki], [1, 0])
     return controller
 
@@ -40,7 +40,7 @@ def fitness(kp, ki, kd, system):
 
     settlingTime = t[-1]
 
-    # Kode for settling time inpired by ChatGPT (Feb 2025)
+    # Code for settling time inpired by ChatGPT (Feb 2025)
     idx = np.where(abs(y-1) < 0.02)[0]
     if (len(idx) > 0):
         for i in range(len(idx)):
@@ -127,7 +127,7 @@ def geneticAlgorithm(system, populationSize, generations, mutationRate):
 
 sys = system()
 
-bestP, bestI, bestD = geneticAlgorithm(sys,100, 100, 0.150) # Edit here to change population size, generations and mutation rate
+bestP, bestI, bestD = geneticAlgorithm(sys, 100, 100, 0.3) # Edit here to change population size, generations and mutation rate
 
 print(f'Best PID: P={bestP}, I={bestI}, D={bestD}')
 plot(*simulatePid(bestP, bestI, bestD, sys))
