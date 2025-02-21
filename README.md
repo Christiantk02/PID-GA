@@ -1,48 +1,49 @@
-# Genetic Algorithm for PID optimization
+# Genetic Algorithm for PID Optimization
 
-## Description:
-This project implements a **Genetic Algorithm (GA)** to try to optimize **PID-parameters** in a dynamic system. The programe evaluates the PID-parameters based on overshoot, settling time and steady state error during a step response.
+## Description
+This project implements a **Genetic Algorithm (GA)** to optimize **PID parameters** in a dynamic system. The program evaluates the PID controller's performance based on overshoot, steady-state error, and settling time.
 
-## Dependencies:
-To run the code the following libraries are required:
-
+## Installation
+To run the code, install the following Python packages:
 ```bash
 pip install numpy matplotlib control
 ```
 
-## How to use:
-
-Kjør hovedprogrammet ved å kjøre:
+## Usage
+Run the main program by executing:
 ```bash
 python PID-GA2.py
 ```
-Parametere som kan justeres:
-- `populationSize`: Antall kandidater i populasjonen
-- `generations`: Antall iterasjoner GA skal kjøre
-- `mutationRate`: Sannsynlighet for mutasjon av en PID-parameter
+Adjustable parameters:
+- `populationSize`: Number of candidates in the population
+- `generations`: Number of iterations the GA will run
+- `mutationRate`: Probability of mutation for a PID parameter
 
-## Eksempelkjøring
-Når programmet kjøres, vil det printe beste PID-parametere per generasjon, og til slutt plotte stegresponsen for det optimale systemet.
+## Modifying the System's Transfer Function
+You can change the system's transfer function by adjusting `num` (numerator) and `den` (denominator) in the `system()` function in the code. This allows you to simulate different dynamic systems for GA-based optimization.
 
-Eksempeloutput:
+## Example Execution
+When the program runs, it will print the best PID parameters per generation and finally plot the step response for the optimized system.
+
+Example output:
 ```
 Generation 99: Best fitness: 0.245, Best PID: (P=2.1, I=0.8, D=0.05)
 ```
 
-## Teoretisk bakgrunn
-### PID-regulering
-En PID-kontroller justerer systemets respons basert på proporsjonal, integrert og deriverte feil:
+## Theoretical Background
+### PID Control
+A PID controller adjusts the system's response based on proportional, integral, and derivative errors:
 $$
-G_c(s) = K_p + rac{K_i}{s} + K_d s
+G_c(s) = K_p + \frac{K_i}{s} + K_d s
 $$
 
-### Genetisk Algoritme (GA)
-GA er en evolusjonsbasert metode som simulerer naturlig seleksjon for å finne optimale løsninger.
+### Genetic Algorithm (GA)
+GA is an evolution-based method that simulates natural selection to find optimal solutions.
 
-## Referanser
-- K. Åström & T. Hägglund, *PID Controllers: Theory, Design, and Tuning*, 2nd Edition.
-- Forelesningsnotater fra kurset AIS2101
-- Wikipedia: [Genetic Algorithm](https://en.wikipedia.org/wiki/Genetic_algorithm)
+## References
+- PRACTICAL GENETIС ALGORITHMS by Randy L. Haupt and Sue Ellen Haupt
 
-## Forfatter
-Dette prosjektet ble utviklet som en del av AIS2101-kurset.
+## Author
+This project was developed as part of the AIS2101 course.
+
+
