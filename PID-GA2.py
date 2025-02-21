@@ -5,7 +5,7 @@ import random as rnd
 
 def system():
     # Generate a transferfunction for the system G(s) = num/den
-    num = [1]
+    num = [1] # To change transferfunction, change num and den
     den = [1,2,1]
     sys = ctrl.TransferFunction(num,den)
     return sys
@@ -40,6 +40,7 @@ def fitness(kp, ki, kd, system):
 
     settlingTime = t[-1]
 
+    # Kode for settling time inpired by ChatGPT (Feb 2025)
     idx = np.where(abs(y-1) < 0.02)[0]
     if (len(idx) > 0):
         for i in range(len(idx)):
@@ -66,7 +67,7 @@ def evaluatePopulation(population, system):
     for i in range(len(population)):
         kp, ki, kd = population[i]
         fitnessValues.append((fitness(kp, ki, kd, system), (kp, ki, kd)))
-    fitnessValues.sort(key=lambda x: x[0])  # Made By ChatGPT  
+    fitnessValues.sort(key=lambda x: x[0])  #key=lambda x: x[0] Inspired by ChatGPT (Feb 2025)  
     return fitnessValues
 
 def selectParents(population, fitnessValues):
@@ -125,7 +126,8 @@ def geneticAlgorithm(system, populationSize, generations, mutationRate):
     return bestPid
 
 sys = system()
-bestP, bestI, bestD = geneticAlgorithm(sys,100, 100, 0.150)
+
+bestP, bestI, bestD = geneticAlgorithm(sys,100, 100, 0.150) # Edit here to change population size, generations and mutation rate
 
 print(f'Best PID: P={bestP}, I={bestI}, D={bestD}')
 plot(*simulatePid(bestP, bestI, bestD, sys))

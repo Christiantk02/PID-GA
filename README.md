@@ -42,6 +42,8 @@ GA is an evolution-based method that simulates natural selection to find optimal
 
 ## References
 - PRACTICAL GENETIС ALGORITHMS by Randy L. Haupt and Sue Ellen Haupt
+- ChatGPT-generated content for README structure and Markdown formatting.
+- Some parts of the Genetic Algorithm implementation were inspired by ChatGPT (Feb 2025) (Coment where relevant)
 
 ## Author
 This project was developed as part of the AIS2101 course.
